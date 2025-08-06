@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership - Nav Yug Nirman Foundation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="navbar-brand">
+                    <img src="assets/images/logo.png" alt="Nav Yug Nirman Foundation Logo" class="logo">
+                    <span>Nav Yug Nirman Foundation</span>
+                </a>
+                <div class="navbar-menu">
+                    <ul class="navbar-nav">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="donation.html" class="nav-link">Donation</a></li>
+                        <li><a href="membership.html" class="nav-link active">Membership</a></li>
+                        <li><a href="events.html" class="nav-link">Events</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                <button class="navbar-toggler" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container mt-1">
+            <h1>Become a Member</h1>
+            <div class="membership-page">
+                <div class="membership-form-container">
+                    <form id="membership-form" class="form">
+                        <div class="form-group">
+                            <label for="member-name">Full Name</label>
+                            <input type="text" id="member-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="member-email">Email Address</label>
+                            <input type="email" id="member-email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="member-phone">Phone Number</label>
+                            <input type="tel" id="member-phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="membership-type">Membership Type</label>
+                            <select id="membership-type" class="form-control">
+                                <option value="general">General</option>
+                                <option value="life">Life</option>
+                                <option value="patron">Patron</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="member-photo">Upload Photo</label>
+                            <input type="file" id="member-photo" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register Now</button>
+                    </form>
+                </div>
+                <div class="membership-info">
+                    <h2>Membership Benefits</h2>
+                    <div class="membership-categories">
+                        <div class="category">
+                            <h3>General Member</h3>
+                            <p>Receive regular updates and newsletters.</p>
+                            <p>Fee: ₹1,000/year</p>
+                        </div>
+                        <div class="category">
+                            <h3>Life Member</h3>
+                            <p>All benefits of a General Member, plus special invitations to exclusive events.</p>
+                            <p>Fee: ₹10,000 (one-time)</p>
+                        </div>
+                        <div class="category">
+                            <h3>Patron Member</h3>
+                            <p>All benefits of a Life Member, plus acknowledgement on our website and annual report.</p>
+                            <p>Fee: ₹50,000 (one-time)</p>
+                        </div>
+                    </div>
+                    <h2>Certificate Preview</h2>
+                    <div class="certificate-preview">
+                        <img src="assets/images/certificate-preview.png" alt="Certificate Preview">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Nav Yug Nirman Foundation. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
