@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Nav Yug Nirman Foundation</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -17,13 +18,21 @@
                 </a>
                 <div class="navbar-menu">
                     <ul class="navbar-nav">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="about.html" class="nav-link active">About</a></li>
-                        <li><a href="donation.html" class="nav-link">Donation</a></li>
-                        <li><a href="membership.html" class="nav-link">Membership</a></li>
-                        <li><a href="events.html" class="nav-link">Events</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="index.html" class="nav-link" data-key="navHome">Home</a></li>
+                        <li><a href="about.html" class="nav-link active" data-key="navAbout">About</a></li>
+                        <li><a href="donation.html" class="nav-link" data-key="navDonation">Donation</a></li>
+                        <li><a href="membership.html" class="nav-link" data-key="navMembership">Membership</a></li>
+                        <li><a href="events.html" class="nav-link" data-key="navEvents">Events</a></li>
+                        <li><a href="contact.html" class="nav-link" data-key="navContact">Contact</a></li>
                     </ul>
+                    <div class="lang-toggle">
+                        <button id="lang-en" class="btn btn-sm active">EN</button>
+                        <button id="lang-hi" class="btn btn-sm">HI</button>
+                    </div>
+                    <div class="theme-toggle">
+                        <button id="theme-light" class="btn btn-sm active" data-key="themeLight">Light</button>
+                        <button id="theme-dark" class="btn btn-sm" data-key="themeDark">Dark</button>
+                    </div>
                 </div>
                 <button class="navbar-toggler" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
@@ -34,16 +43,16 @@
 
     <main>
         <section class="container mt-1">
-            <h1>About Nav Yug Nirman Foundation</h1>
+            <h1 data-key="aboutTitle">About Nav Yug Nirman Foundation</h1>
             <div class="about-content">
                 <div class="mission-story">
-                    <h2>Our Story</h2>
-                    <p>Nav Yug Nirman Foundation was established with the vision of creating a society where every individual has the opportunity to live a dignified life. Our journey began with a small group of passionate individuals who wanted to make a difference in their communities. Today, we have grown into a thriving organization that has touched the lives of thousands.</p>
-                    <h2>Our Mission</h2>
-                    <p>Our mission is to empower underprivileged communities through sustainable initiatives in education, healthcare, and social welfare. We strive to create a world where everyone has access to basic necessities and the opportunity to reach their full potential.</p>
+                    <h2 data-key="ourStory">Our Story</h2>
+                    <p data-key="storyContent">Nav Yug Nirman Foundation was established with the vision of creating a society where every individual has the opportunity to live a dignified life. Our journey began with a small group of passionate individuals who wanted to make a difference in their communities. Today, we have grown into a thriving organization that has touched the lives of thousands.</p>
+                    <h2 data-key="ourMission">Our Mission</h2>
+                    <p data-key="missionContent">Our mission is to empower underprivileged communities through sustainable initiatives in education, healthcare, and social welfare. We strive to create a world where everyone has access to basic necessities and the opportunity to reach their full potential.</p>
                 </div>
                 <div class="team-grid">
-                    <h2>Our Leadership</h2>
+                    <h2 data-key="ourLeadership">Our Leadership</h2>
                     <div class="team-members">
                         <div class="team-member">
                             <img src="assets/images/team/amarjeet-shukla.jpg" alt="Amarjeet Shukla">
@@ -112,6 +121,13 @@
         </div>
     </footer>
 
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+    <script src="js/languages.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode.js/1.0.0/qrcode.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>

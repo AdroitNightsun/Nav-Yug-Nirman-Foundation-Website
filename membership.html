@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Membership - Nav Yug Nirman Foundation</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -17,13 +18,21 @@
                 </a>
                 <div class="navbar-menu">
                     <ul class="navbar-nav">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="about.html" class="nav-link">About</a></li>
-                        <li><a href="donation.html" class="nav-link">Donation</a></li>
-                        <li><a href="membership.html" class="nav-link active">Membership</a></li>
-                        <li><a href="events.html" class="nav-link">Events</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="index.html" class="nav-link" data-key="navHome">Home</a></li>
+                        <li><a href="about.html" class="nav-link" data-key="navAbout">About</a></li>
+                        <li><a href="donation.html" class="nav-link" data-key="navDonation">Donation</a></li>
+                        <li><a href="membership.html" class="nav-link active" data-key="navMembership">Membership</a></li>
+                        <li><a href="events.html" class="nav-link" data-key="navEvents">Events</a></li>
+                        <li><a href="contact.html" class="nav-link" data-key="navContact">Contact</a></li>
                     </ul>
+                    <div class="lang-toggle">
+                        <button id="lang-en" class="btn btn-sm active">EN</button>
+                        <button id="lang-hi" class="btn btn-sm">HI</button>
+                    </div>
+                    <div class="theme-toggle">
+                        <button id="theme-light" class="btn btn-sm active" data-key="themeLight">Light</button>
+                        <button id="theme-dark" class="btn btn-sm" data-key="themeDark">Dark</button>
+                    </div>
                 </div>
                 <button class="navbar-toggler" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
@@ -34,24 +43,24 @@
 
     <main>
         <section class="container mt-1">
-            <h1>Become a Member</h1>
+            <h1 data-key="membershipTitle">Become a Member</h1>
             <div class="membership-page">
                 <div class="membership-form-container">
                     <form id="membership-form" class="form">
                         <div class="form-group">
-                            <label for="member-name">Full Name</label>
+                            <label for="member-name" data-key="memberName">Full Name</label>
                             <input type="text" id="member-name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="member-email">Email Address</label>
+                            <label for="member-email" data-key="memberEmail">Email Address</label>
                             <input type="email" id="member-email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="member-phone">Phone Number</label>
+                            <label for="member-phone" data-key="memberPhone">Phone Number</label>
                             <input type="tel" id="member-phone" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="membership-type">Membership Type</label>
+                            <label for="membership-type" data-key="membershipType">Membership Type</label>
                             <select id="membership-type" class="form-control">
                                 <option value="general">General</option>
                                 <option value="life">Life</option>
@@ -64,6 +73,8 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Register Now</button>
                     </form>
+                    <button id="download-certificate-btn" class="btn btn-secondary mt-1" style="display:none;" data-key="downloadCertificate">Download Certificate</button>
+                    <button id="download-id-card-btn" class="btn btn-secondary mt-1" style="display:none;" data-key="downloadIdCard">Download ID Card</button>
                 </div>
                 <div class="membership-info">
                     <h2>Membership Benefits</h2>
@@ -86,7 +97,9 @@
                     </div>
                     <h2>Certificate Preview</h2>
                     <div class="certificate-preview">
-                        <img src="assets/images/certificate-preview.png" alt="Certificate Preview">
+                        <a href="#" id="preview-certificate">
+                            <img src="assets/images/certificate-preview.png" alt="Certificate Preview">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -99,8 +112,70 @@
         </div>
     </footer>
 
-    <div id="toast" class="toast"></div>
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
 
+    <!-- Hidden Membership Certificate Template -->
+    <div id="membership-certificate-template" class="document-template">
+        <div class="document-header">
+            <img src="assets/images/logo.png" alt="Nav Yug Nirman Foundation Logo" class="logo">
+            <h1>Nav Yug Nirman Foundation</h1>
+            <p>Registration Number: UP01/2025/0510793</p>
+            <h2 data-key="certificateTitle">Certificate of Membership</h2>
+        </div>
+        <div class="document-body" style="text-align: center;">
+            <p style="font-size: 14pt; margin-top: 20mm;">This certifies that</p>
+            <p style="font-size: 20pt; font-weight: bold; margin: 5mm 0;" id="certificate-member-name"></p>
+            <p style="font-size: 14pt;">is a proud <span id="certificate-membership-category"></span> of</p>
+            <p style="font-size: 16pt; font-weight: bold;">Nav Yug Nirman Foundation</p>
+            <p style="font-size: 12pt; margin-top: 10mm;"><strong data-key="memberId">Member ID</strong>: <span id="certificate-member-id"></span></p>
+            <p style="font-size: 12pt;"><strong data-key="issueDate">Issue Date</strong>: <span id="certificate-issue-date"></span></p>
+            <p style="font-size: 12pt;"><strong data-key="validUntil">Valid Until</strong>: <span id="certificate-valid-until"></span></p>
+
+            <div style="margin-top: 30mm; display: flex; justify-content: space-around; align-items: flex-end;">
+                <div style="text-align: center;">
+                    <div id="certificate-qr-code" style="margin-bottom: 5mm;"></div>
+                    <p style="font-size: 10pt;">Scan for Verification</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="border-top: 1px solid #000; padding-top: 5mm; font-size: 12pt;" data-key="president">President</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="border-top: 1px solid #000; padding-top: 5mm; font-size: 12pt;" data-key="secretary">Secretary</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Member ID Card Template -->
+    <div id="member-id-card-template" class="id-card-template">
+        <div class="id-card-header">
+            <img src="assets/images/logo.png" alt="Logo">
+            Nav Yug Nirman Foundation
+        </div>
+        <div class="id-card-body">
+            <img id="id-card-photo" src="" alt="Member Photo" class="id-card-photo">
+            <div class="id-card-details">
+                <p><strong data-key="name">Name</strong>: <span id="id-card-member-name"></span></p>
+                <p><strong data-key="memberId">Member ID</strong>: <span id="id-card-member-id"></span></p>
+                <p><strong data-key="role">Role</strong>: <span id="id-card-membership-category"></span></p>
+                <p><strong data-key="issueDate">Issue Date</strong>: <span id="id-card-issue-date"></span></p>
+                <p><strong data-key="expiryDate">Expiry Date</strong>: <span id="id-card-expiry-date"></span></p>
+            </div>
+        </div>
+        <div class="id-card-qr">
+            <div id="id-card-qr-code"></div>
+        </div>
+        <div class="id-card-footer">
+            Registration No: UP01/2025/0510793
+        </div>
+    </div>
+
+    <script src="js/languages.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode.js/1.0.0/qrcode.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>

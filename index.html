@@ -21,6 +21,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -35,16 +36,21 @@
                 </a>
                 <div class="navbar-menu">
                     <ul class="navbar-nav">
-                        <li><a href="index.html" class="nav-link active">Home</a></li>
-                        <li><a href="about.html" class="nav-link">About</a></li>
-                        <li><a href="donation.html" class="nav-link">Donation</a></li>
-                        <li><a href="membership.html" class="nav-link">Membership</a></li>
-                        <li><a href="events.html" class="nav-link">Events</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="index.html" class="nav-link active" data-key="navHome">Home</a></li>
+                        <li><a href="about.html" class="nav-link" data-key="navAbout">About</a></li>
+                        <li><a href="donation.html" class="nav-link" data-key="navDonation">Donation</a></li>
+                        <li><a href="membership.html" class="nav-link" data-key="navMembership">Membership</a></li>
+                        <li><a href="events.html" class="nav-link" data-key="navEvents">Events</a></li>
+                        <li><a href="transactions.html" class="nav-link" data-key="transactionHistory">Transactions</a></li>
+                        <li><a href="contact.html" class="nav-link" data-key="navContact">Contact</a></li>
                     </ul>
                     <div class="lang-toggle">
                         <button id="lang-en" class="btn btn-sm active">EN</button>
                         <button id="lang-hi" class="btn btn-sm">HI</button>
+                    </div>
+                    <div class="theme-toggle">
+                        <button id="theme-light" class="btn btn-sm active" data-key="themeLight">Light</button>
+                        <button id="theme-dark" class="btn btn-sm" data-key="themeDark">Dark</button>
                     </div>
                 </div>
                 <button class="navbar-toggler" aria-label="Toggle navigation">
@@ -58,77 +64,77 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Building a Better Future, Together</h1>
-                    <p class="hero-subtitle">Join the Nav Yug Nirman Foundation in our mission to empower communities and create lasting change.</p>
+                    <h1 class="hero-title" data-key="heroTitle">Building a Better Future, Together</h1>
+                    <p class="hero-subtitle" data-key="heroSubtitle">Join the Nav Yug Nirman Foundation in our mission to empower communities and create lasting change.</p>
                     <div class="hero-buttons">
-                        <a href="donation.html" class="btn btn-primary">Donate Now</a>
-                        <a href="membership.html" class="btn btn-secondary">Join Our Mission</a>
+                        <a href="donation.html" class="btn btn-primary" data-key="donateNow">Donate Now</a>
+                        <a href="membership.html" class="btn btn-secondary" data-key="joinOurMission">Join Our Mission</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="impact" class="container mt-1">
-            <h2 class="text-center">Our Impact</h2>
+            <h2 class="text-center" data-key="ourImpact">Our Impact</h2>
             <div class="impact-stats">
                 <div class="stat">
                     <span class="count" data-target="500">0</span>+
-                    <p>Donations Collected</p>
+                    <p data-key="donationsCollected">Donations Collected</p>
                 </div>
                 <div class="stat">
                     <span class="count" data-target="200">0</span>+
-                    <p>Members Enrolled</p>
+                    <p data-key="membersEnrolled">Members Enrolled</p>
                 </div>
                 <div class="stat">
                     <span class="count" data-target="50">0</span>+
-                    <p>Events Completed</p>
+                    <p data-key="eventsCompleted">Events Completed</p>
                 </div>
                 <div class="stat">
                     <span class="count" data-target="1000">0</span>+
-                    <p>Lives Impacted</p>
+                    <p data-key="livesImpacted">Lives Impacted</p>
                 </div>
             </div>
         </section>
 
         <section id="recent-events" class="container mt-1">
-            <h2 class="text-center">Recent Events</h2>
+            <h2 class="text-center" data-key="recentEvents">Recent Events</h2>
             <div class="event-cards">
                 <div class="card">
                     <img src="assets/images/event1.jpg" alt="Event 1">
                     <div class="card-content">
-                        <h3>Health Camp</h3>
+                        <h3 data-key="healthCamp">Health Camp</h3>
                         <p class="date">August 1, 2025</p>
-                        <p>A successful health camp providing free check-ups and medicines to over 200 people.</p>
+                        <p data-key="healthCampDesc">A successful health camp providing free check-ups and medicines to over 200 people.</p>
                     </div>
                 </div>
                 <div class="card">
                     <img src="assets/images/event2.jpg" alt="Event 2">
                     <div class="card-content">
-                        <h3>Educational Workshop</h3>
+                        <h3 data-key="eduWorkshop">Educational Workshop</h3>
                         <p class="date">July 20, 2025</p>
-                        <p>An engaging workshop for underprivileged children, focusing on digital literacy.</p>
+                        <p data-key="eduWorkshopDesc">An engaging workshop for underprivileged children, focusing on digital literacy.</p>
                     </div>
                 </div>
                 <div class="card">
                     <img src="assets/images/event3.jpg" alt="Event 3">
                     <div class="card-content">
-                        <h3>Tree Plantation Drive</h3>
+                        <h3 data-key="treePlantation">Tree Plantation Drive</h3>
                         <p class="date">July 5, 2025</p>
-                        <p>Our team and volunteers planted over 500 saplings to promote a greener environment.</p>
+                        <p data-key="treePlantationDesc">Our team and volunteers planted over 500 saplings to promote a greener environment.</p>
                     </div>
-                </div>
+                end
             </div>
         </section>
 
         <section id="testimonials" class="container mt-1">
-            <h2 class="text-center">What Our Beneficiaries Say</h2>
+            <h2 class="text-center" data-key="testimonialsTitle">What Our Beneficiaries Say</h2>
             <div class="testimonial-slider">
                 <div class="testimonial">
-                    <p>"The support from Nav Yug Nirman Foundation has been life-changing for my family. We are grateful for their help."</p>
+                    <p data-key="testimonial1">"The support from Nav Yug Nirman Foundation has been life-changing for my family. We are grateful for their help."</p>
                     <cite>- A Beneficiary</cite>
                 </div>
                 <div class="testimonial">
-                    <p>"Thanks to the foundation's educational programs, my children now have a brighter future."</p>
+                    <p data-key="testimonial2">"Thanks to the foundation's educational programs, my children now have a brighter future."</p>
                     <cite>- A Grateful Parent</cite>
                 </div>
             </div>
@@ -139,8 +145,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section about">
-                    <h3 class="footer-title">About Us</h3>
-                    <p>Nav Yug Nirman Foundation is committed to fostering sustainable development and social equity through various initiatives.</p>
+                    <h3 class="footer-title" data-key="footerAbout">About Us</h3>
+                    <p data-key="footerAboutDesc">Nav Yug Nirman Foundation is committed to fostering sustainable development and social equity through various initiatives.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -149,14 +155,14 @@
                     </div>
                 </div>
                 <div class="footer-section contact">
-                    <h3 class="footer-title">Contact Us</h3>
+                    <h3 class="footer-title" data-key="footerContact">Contact Us</h3>
                     <ul>
                         <li><i class="fas fa-envelope"></i> Email: info@navyugnirman.org</li>
                         <li><i class="fas fa-phone"></i> Mobile/WhatsApp: +91 9811273506</li>
                     </ul>
                 </div>
                 <div class="footer-section registration">
-                    <h3 class="footer-title">Registration</h3>
+                    <h3 class="footer-title" data-key="footerRegistration">Registration</h3>
                     <p>Registration Number: UP01/2025/0510793</p>
                 </div>
             </div>
@@ -166,6 +172,15 @@
         </div>
     </footer>
 
+    <div id="toast" class="toast"></div>
+
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+    <script src="js/languages.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode.js/1.0.0/qrcode.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>

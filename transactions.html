@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events - Nav Yug Nirman Foundation</title>
+    <title data-key="transactionHistory">Transaction History - Nav Yug Nirman Foundation</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -22,12 +21,13 @@
                         <li><a href="about.html" class="nav-link" data-key="navAbout">About</a></li>
                         <li><a href="donation.html" class="nav-link" data-key="navDonation">Donation</a></li>
                         <li><a href="membership.html" class="nav-link" data-key="navMembership">Membership</a></li>
-                        <li><a href="events.html" class="nav-link active" data-key="navEvents">Events</a></li>
+                        <li><a href="events.html" class="nav-link" data-key="navEvents">Events</a></li>
+                        <li><a href="transactions.html" class="nav-link active" data-key="transactionHistory">Transactions</a></li>
                         <li><a href="contact.html" class="nav-link" data-key="navContact">Contact</a></li>
                     </ul>
                     <div class="lang-toggle">
-                        <button id="lang-en" class="btn btn-sm active">EN</button>
-                        <button id="lang-hi" class="btn btn-sm">HI</button>
+                        <button id="lang-en" class="btn btn-sm active" data-key="themeLight">EN</button>
+                        <button id="lang-hi" class="btn btn-sm" data-key="themeDark">HI</button>
                     </div>
                     <div class="theme-toggle">
                         <button id="theme-light" class="btn btn-sm active" data-key="themeLight">Light</button>
@@ -43,29 +43,40 @@
 
     <main>
         <section class="container mt-1">
-            <h1 data-key="eventsTitle">Events</h1>
-            <div class="event-filters">
-                <select id="category-filter">
-                    <option value="all">All Categories</option>
-                    <option value="educational">Educational</option>
-                    <option value="health">Health</option>
-                    <option value="environmental">Environmental</option>
-                    <option value="community">Community Development</option>
+            <h1 data-key="transactionHistory">Transaction History</h1>
+            <div class="filters mb-1">
+                <input type="text" id="search-transactions" class="form-control" placeholder="Search by ID, Name, Email..." data-key="search">
+                <select id="status-filter" class="form-control">
+                    <option value="all" data-key="all">All</option>
+                    <option value="success" data-key="success">Success</option>
+                    <option value="failed" data-key="failed">Failed</option>
+                    <option value="pending" data-key="pending">Pending</option>
                 </select>
-                <input type="date" id="date-filter">
+                <button id="export-csv-btn" class="btn btn-primary" data-key="exportCsv">Export to CSV</button>
             </div>
-
-            <div id="upcoming-events">
-                <h2 data-key="upcomingEvents">Upcoming Events</h2>
-                <div class="event-list">
-                    </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th data-key="transactionId">Transaction ID</th>
+                            <th data-key="paymentId">Payment ID</th>
+                            <th data-key="orderId">Order ID</th>
+                            <th data-key="status">Status</th>
+                            <th data-key="date">Date</th>
+                            <th data-key="amount">Amount</th>
+                            <th data-key="purpose">Purpose</th>
+                            <th data-key="name">Name</th>
+                            <th data-key="email">Email</th>
+                            <th data-key="phone">Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactions-table-body">
+                        <!-- Transactions will be loaded here by JavaScript -->
+                    </tbody>
+                </table>
             </div>
-
-            <div id="past-events">
-                <h2 data-key="pastEvents">Past Events</h2>
-                <div class="event-gallery">
-                    </div>
-            </div>
+            <p id="no-transactions-message" class="text-center" data-key="noTransactions" style="display:none;">No transactions found.</p>
         </section>
     </main>
 
@@ -81,7 +92,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode.js/1.0.0/qrcode.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/modal.js"></script>
 </body>
 </html>
